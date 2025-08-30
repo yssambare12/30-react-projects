@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="flex justify-between m-4 p-4 bg-green-300 rounded shadow-md">
@@ -8,7 +10,16 @@ const Header = () => {
           alt="logo"
         />
       </div>
-      <div>Nav Manu</div>
+      <div>
+        <ul className="flex">
+          <li className="mr-2">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="mr-2">
+            <Link to="/todo">ToDo</Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
