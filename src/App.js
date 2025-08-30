@@ -1,7 +1,7 @@
-import Header from "./Components/Header";
+import Header from "./Projects/Header";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import ToDo from "./Components/Todo";
-import Home from "./Components/Home";
+import ToDo from "./Projects/Todo/Todo";
+import Home from "./Projects/Home";
 
 export function App() {
   return (
