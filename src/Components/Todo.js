@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TaskShow from "./TaskShow";
 
 const ToDo = () => {
   const [inputvalue, setInputValue] = useState("");
-  const [taskarray, setTaskArray] = useState([]);
+
+  const [taskarray, setTaskArray] = useState(() => {
+    try {
+      const saved = localStorage.getItem("tasks");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
 
   const handleSubmit = (inputvalue) => {
+    if (!inputvalue) {
+      alert(
+        "Add something which you want to make note for it in the input box"
+      );
+    }
     setTaskArray((oldstring) => {
       const updated = [...oldstring, inputvalue];
       return updated;
     });
+  };
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(taskarray));
+  }, [taskarray]);
+
+  const deletArray = () => {
+    setTaskArray([]);
+    localStorage.removeItem("tasks");
   };
 
   return (
@@ -20,24 +42,30 @@ const ToDo = () => {
           <input
             placeholder="Add Your Task..."
             value={inputvalue}
-            onChange={(e) => {
-              setInputValue(e.target.value);
-              console.log(e.target.value);
-            }}
+            onChange={(e) => setInputValue(e.target.value)}
             className="p-2 rounded"
           />
           <button
             onClick={() => handleSubmit(inputvalue)}
-            className="bg-red-500 mt-3 mx-6 text-white rounded"
+            className="bg-red-500 mt-3 mx-6 p-2 text-white rounded"
           >
             Submit
           </button>
         </div>
 
         <div className="taskshow">
-          {taskarray.map((task) => (
-            <TaskShow inputvalue={task} />
+          {taskarray.map((task, index) => (
+            <TaskShow key={index} inputvalue={task} />
           ))}
+
+          {taskarray.length > 0 && (
+            <button
+              onClick={deletArray}
+              className="bg-red-500 mt-3 mx-6 p-2 text-white rounded"
+            >
+              Delete All Elements
+            </button>
+          )}
         </div>
       </div>
     </div>
