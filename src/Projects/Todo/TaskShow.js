@@ -3,6 +3,8 @@ import { useState } from "react";
 const TaskShow = ({ inputvalue, onDelete }) => {
   const [isChecked, setIsChecked] = useState(false);
 
+  const [likeCount, setLikeCount] = useState(null);
+
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
@@ -26,6 +28,12 @@ const TaskShow = ({ inputvalue, onDelete }) => {
           {inputvalue}
         </h3>
       </div>
+      <span
+        className="cursor-pointer"
+        onClick={() => setLikeCount(likeCount + 1)}
+      >
+        ❤️ {likeCount}
+      </span>
       <button
         onClick={onDelete}
         className="text-red-500 hover:text-red-700 font-semibold"
