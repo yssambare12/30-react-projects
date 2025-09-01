@@ -1,12 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TaskShow = ({ inputvalue, onDelete }) => {
+  const storageKey = `likes_${encodeURIComponent(inputvalue)}`;
   const [isChecked, setIsChecked] = useState(false);
 
-  const [likeCount, setLikeCount] = useState(null);
+  const [likeCount, setLikeCount] = useState(() => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      return saved ? Number(saved) : 0;
+    } catch (e) {
+      return 0;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      setLikeCount(saved ? Number(saved) : 0);
+    } catch (e) {}
+  }, [storageKey]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(storageKey, String(likeCount));
+    } catch (e) {
+      console.warn("localStorage set failed:", e);
+    }
+  }, [storageKey, likeCount]);
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+    setIsChecked((prev) => !prev);
+  };
+
+  const handleLike = () => {
+    setLikeCount((prev) => prev + 1);
   };
 
   return (
@@ -28,10 +55,7 @@ const TaskShow = ({ inputvalue, onDelete }) => {
           {inputvalue}
         </h3>
       </div>
-      <span
-        className="cursor-pointer"
-        onClick={() => setLikeCount(likeCount + 1)}
-      >
+      <span className="cursor-pointer" onClick={handleLike}>
         ❤️ {likeCount}
       </span>
       <button
