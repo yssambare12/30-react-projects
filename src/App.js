@@ -2,6 +2,7 @@ import Header from "./Projects/Header";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ToDo from "./Projects/Todo/Todo";
 import Home from "./Projects/Home";
+import Accordian from "./Projects/Accordian/Accordian";
 
 export function App() {
   return (
@@ -24,6 +25,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <ToDo />,
         path: "/todo",
+      },
+      {
+        element: <Accordian />,
+        path: "/accordian",
       },
     ],
   },
