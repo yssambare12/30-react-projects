@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  const [isDark, setIsDark] = useState(false);
+  // const [isDark, setIsDark] = useState(false);
+
+  const isDark = useSelector((store) => store.themestyle.isdark);
+
+  console.log(isDark);
 
   const applydarkmode = () => {
-    setIsDark(!isDark);
-    console.log(isDark);
+    // setIsDark(!isDark);
+    // console.log(isDark);
   };
 
   return (
@@ -13,7 +18,7 @@ const Home = () => {
       <h1 className="text-3xl font-bold">Welcome to my React Projects!</h1>
       <p className="mt-4">Please select a project from the header.</p>
       <button
-        onClick={() => applydarkmode()}
+        // onClick={() => applydarkmode()}
         className="p-2 my-4 rounded-lg shadow-md bg-red-500 text-white cursor-pointer"
       >
         Dark Mode
