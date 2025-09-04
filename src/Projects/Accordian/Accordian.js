@@ -5,7 +5,7 @@ const Accordian = () => {
   const [open, setOpen] = useState(null);
 
   const openPanel = (index) => {
-    setOpen(index === open ? null : index); // keeps same functionality
+    setOpen(index === open ? null : index);
   };
 
   return (

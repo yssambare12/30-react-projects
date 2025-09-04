@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggledark } from "./utils/themeStyleSlice";
 
 const Home = () => {
-  // const [isDark, setIsDark] = useState(false);
-
   const dispatch = useDispatch();
-
   const isDark = useSelector((store) => store.themestyle.isdark);
 
   console.log(isDark);
@@ -16,7 +13,7 @@ const Home = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className={`p-8 ${isDark ? "bg-black text-white" : "bg-white"}`}>
       <h1 className="text-3xl font-bold">Welcome to my React Projects!</h1>
       <p className="mt-4">Please select a project from the header.</p>
       <button

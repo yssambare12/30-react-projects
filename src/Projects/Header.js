@@ -1,8 +1,14 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const isdark = useSelector((store) => store.themestyle.isdark);
   return (
-    <div className="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <div
+      className={`bg-gray-800 ${
+        isdark ? "text-white bg-black" : "text-black bg-red-400"
+      } text-white p-4 flex justify-between items-center`}
+    >
       <h1 className="text-2xl font-bold">
         <Link to="/">React Projects</Link>
       </h1>
