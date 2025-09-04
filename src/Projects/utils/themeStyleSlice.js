@@ -5,7 +5,7 @@ const themestyle = createSlice({
   initialState: {
     isdark: false,
   },
-  reducer: {
+  reducers: {
     toggledark: (state) => {
       state.isdark = !state.isdark;
     },
