@@ -1,15 +1,19 @@
 import Header from "./Projects/Header";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import ToDo from "./Projects/Todo/Todo";
 import Home from "./Projects/Home";
 import Accordian from "./Projects/Accordian/Accordian";
+import store from "./Projects/utils/store";
+import { Provider } from "react-redux";
 
 export function App() {
   return (
-    <div className="App">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 }
 
