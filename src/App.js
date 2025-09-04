@@ -5,6 +5,7 @@ import Home from "./Projects/Home";
 import Accordian from "./Projects/Accordian/Accordian";
 import store from "./Projects/utils/store";
 import { Provider } from "react-redux";
+import BGchangeButton from "./Projects/BgChangeBtn/BgchangeBtn";
 
 export function App() {
   return (
@@ -33,6 +34,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <Accordian />,
         path: "/accordian",
+      },
+      {
+        element: <BGchangeButton />,
+        path: "/bgchange",
       },
     ],
   },

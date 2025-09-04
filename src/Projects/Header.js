@@ -22,6 +22,9 @@ const Header = () => {
         <li>
           <Link to="/accordian">Accordian</Link>
         </li>
+        <li>
+          <Link to="/bgchange">BGChangeBtn</Link>
+        </li>
       </ul>
     </div>
   );
