@@ -14,43 +14,59 @@ const Contactform = () => {
   };
 
   return (
-    <div className="m-4 p-4 shadow-lg flex flex-col items-center justify-center">
-      <h2>Contact Us Form</h2>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          alertmassage();
-        }}
-        className="flex flex-col items-center"
-      >
-        <input
-          className="border rounded-sm m-2 p-1"
-          type="text"
-          placeholder="Your Name"
-          value={firstName}
-          onChange={(e) => setfirstName(e.target.value)}
-        />
-        <input
-          className="border rounded-sm m-2 p-1"
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setlastName(e.target.value)}
-        />
-        <button type="submit">Submit Name</button>
-      </form>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-300 via-pink-200 to-yellow-200">
+      <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+          Contact Us Form
+        </h2>
 
-      {/* Character Counter Section */}
-      <div className="mt-6">
-        <h2>Character Counter</h2>
-        <input
-          className="border rounded-sm m-2 p-1"
-          type="text"
-          value={textCount}
-          placeholder="Type something..."
-          onChange={(e) => setTextCount(e.target.value)}
-        />
-        <p>Characters: {textCount.length}</p>
+        {/* Contact Form */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alertmassage();
+          }}
+          className="flex flex-col"
+        >
+          <input
+            className="border border-gray-300 rounded-lg p-3 mb-3 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+            type="text"
+            placeholder="Your First Name"
+            value={firstName}
+            onChange={(e) => setfirstName(e.target.value)}
+          />
+          <input
+            className="border border-gray-300 rounded-lg p-3 mb-3 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+            type="text"
+            placeholder="Your Last Name"
+            value={lastName}
+            onChange={(e) => setlastName(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition"
+          >
+            Submit Name
+          </button>
+        </form>
+
+        {/* Character Counter Section */}
+        <div className="mt-8 border-t pt-6">
+          <h2 className="text-xl font-semibold text-gray-700 mb-3">
+            Character Counter
+          </h2>
+          <input
+            className="border border-gray-300 rounded-lg p-3 mb-3 w-full focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
+            type="text"
+            value={textCount}
+            placeholder="Type something..."
+            onChange={(e) => setTextCount(e.target.value)}
+          />
+          <p className="text-gray-600">
+            Characters:{" "}
+            <span className="font-bold text-pink-600">{textCount.length}</span>
+          </p>
+        </div>
       </div>
     </div>
   );
