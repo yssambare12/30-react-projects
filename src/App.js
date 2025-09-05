@@ -6,6 +6,7 @@ import Accordian from "./Projects/Accordian/Accordian";
 import store from "./Projects/utils/store";
 import { Provider } from "react-redux";
 import BGchangeButton from "./Projects/BgChangeBtn/BgchangeBtn";
+import Contactform from "./Projects/Contact/ContactForm";
 
 export function App() {
   return (
@@ -38,6 +39,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <BGchangeButton />,
         path: "/bgchange",
+      },
+      {
+        element: <Contactform />,
+        path: "/contact",
       },
     ],
   },

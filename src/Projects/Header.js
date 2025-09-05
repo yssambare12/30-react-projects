@@ -25,6 +25,9 @@ const Header = () => {
         <li>
           <Link to="/bgchange">BGChangeBtn</Link>
         </li>
+        <li>
+          <Link to="/contact">ContactUS</Link>
+        </li>
       </ul>
     </div>
   );
