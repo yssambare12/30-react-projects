@@ -5,6 +5,8 @@ const Contactform = () => {
   const [lastName, setlastName] = useState("");
   const [textCount, setTextCount] = useState("");
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const alertmassage = () => {
     if (firstName || lastName) {
       alert("Hello " + firstName + " " + lastName);
@@ -34,6 +36,7 @@ const Contactform = () => {
             placeholder="Your First Name"
             value={firstName}
             onChange={(e) => setfirstName(e.target.value)}
+            autoComplete="on"
           />
           <input
             className="border border-gray-300 rounded-lg p-3 mb-3 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
@@ -42,6 +45,22 @@ const Contactform = () => {
             value={lastName}
             onChange={(e) => setlastName(e.target.value)}
           />
+          <div className="flex items-center border border-gray-300 rounded-lg mb-3 focus-within:ring-2 focus-within:ring-purple-400 transition">
+            <input
+              className="flex-grow p-3 rounded-l-lg focus:outline-none"
+              type={showPassword ? "text" : "password"}
+              placeholder="Add your password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="px-3 text-gray-600 hover:text-purple-600 transition cursor-pointer"
+              title={showPassword ? "Hide Password" : "Show Password"}
+            >
+              {showPassword ? "👁️" : "🙈"}
+            </button>
+          </div>
+
           <button
             type="submit"
             className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition"
