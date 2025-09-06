@@ -4,8 +4,6 @@ import ResturantCard from "./ResturantCard";
 const FoodApp = () => {
   const [resturantData, setResturantData] = useState([]);
 
-  //   console.log(resturantData);
-
   useEffect(() => {
     dataFetch();
   }, []);
@@ -22,18 +20,18 @@ const FoodApp = () => {
         ?.restaurants;
 
     setResturantData(AllCardData);
-
-    // console.log(
-    //   json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    // );
   };
 
   return (
-    <div className="m-4 p-4 flex shadow-lg rounded-sm">
-      <h1>Top restaurant chains in Pune</h1>
-      {resturantData.map((resturant) => (
-        <ResturantCard key={resturant.info.id} productData={resturant} />
-      ))}
+    <div className="m-6 p-6 bg-gray-50 rounded-xl shadow-lg">
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">
+        Top restaurant chains in Pune
+      </h1>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {resturantData.map((resturant) => (
+          <ResturantCard key={resturant.info.id} productData={resturant} />
+        ))}
+      </div>
     </div>
   );
 };
