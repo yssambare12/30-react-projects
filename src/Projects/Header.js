@@ -28,6 +28,9 @@ const Header = () => {
         <li>
           <Link to="/contact">ContactUS</Link>
         </li>
+        <li>
+          <Link to="/foodapp">FoodApp</Link>
+        </li>
       </ul>
     </div>
   );

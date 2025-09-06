@@ -7,6 +7,7 @@ import store from "./Projects/utils/store";
 import { Provider } from "react-redux";
 import BGchangeButton from "./Projects/BgChangeBtn/BgchangeBtn";
 import Contactform from "./Projects/Contact/ContactForm";
+import FoodApp from "./Projects/FoodOrder/FoodApp";
 
 export function App() {
   return (
@@ -43,6 +44,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <Contactform />,
         path: "/contact",
+      },
+      {
+        element: <FoodApp />,
+        path: "/foodapp",
       },
     ],
   },
