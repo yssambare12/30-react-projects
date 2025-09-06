@@ -1,7 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ResturantCard from "./ResturantCard";
 
 const FoodApp = () => {
+  const [resturantData, setResturantData] = useState([]);
+
+  //   console.log(resturantData);
+
   useEffect(() => {
     dataFetch();
   }, []);
@@ -13,15 +17,23 @@ const FoodApp = () => {
 
     const json = await data.json();
 
-    console.log(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    );
+    const AllCardData =
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+
+    setResturantData(AllCardData);
+
+    // console.log(
+    //   json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    // );
   };
 
   return (
-    <div className="m-4 p-4 shadow-lg rounded-sm">
+    <div className="m-4 p-4 flex shadow-lg rounded-sm">
       <h1>Top restaurant chains in Pune</h1>
-      <ResturantCard />
+      {resturantData.map((resturant) => (
+        <ResturantCard key={resturant.info.id} productData={resturant} />
+      ))}
     </div>
   );
 };
