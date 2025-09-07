@@ -4,6 +4,8 @@ import ResturantCard from "./ResturantCard";
 const FoodApp = () => {
   const [resturantData, setResturantData] = useState([]);
 
+  console.log(resturantData);
+
   useEffect(() => {
     dataFetch();
   }, []);

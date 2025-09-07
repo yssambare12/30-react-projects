@@ -13,7 +13,9 @@ const FoodItem = ({ foodData }) => {
       <div className="p-4">
         <h3>{category}</h3>
         <h2 className="text-xl font-semibold text-gray-800">{name}</h2>
-        <h3 className="text-lg text-gray-600 mt-2">Price - {price / 100}</h3>
+        <h3 className="text-lg text-gray-600 mt-2">
+          Price - ₹{price ? price / 100 : "N/A"}
+        </h3>
         <button className="mt-4 w-full bg-green-500 text-white py-2 rounded-xl font-medium hover:bg-green-600 transition">
           Add to Cart
         </button>

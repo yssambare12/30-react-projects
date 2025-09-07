@@ -10,10 +10,11 @@ const ResturantCard = ({ productData }) => {
     areaName,
     cuisines,
     cloudinaryImageId,
+    id,
   } = productData.info;
 
   return (
-    <Link to="/restaurantpage">
+    <Link to={"/restaurant/" + id}>
       <div className="bg-white shadow-lg rounded-2xl p-4 w-72 hover:scale-105 transform transition duration-200">
         <img
           className="w-full h-44 object-cover rounded-lg"
@@ -25,6 +26,7 @@ const ResturantCard = ({ productData }) => {
         />
         <div className="mt-3 space-y-1">
           <h3 className="font-semibold text-lg text-gray-800">{name}</h3>
+          <h3 className="font-semibold text-lg text-gray-800">{id}</h3>
           <p className="text-sm text-gray-600">{cuisines.join(", ")}</p>
           <div className="flex items-center justify-between text-sm mt-2">
             <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded-lg font-medium">

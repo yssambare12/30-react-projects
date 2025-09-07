@@ -52,7 +52,7 @@ export const appRouter = createBrowserRouter([
       },
       {
         element: <ResturantPage />,
-        path: "/restaurantpage",
+        path: "/restaurant/:restaurantId",
       },
     ],
   },
