@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import FoodItem from "./FoodItem";
 
 const ResturantPage = () => {
+  const [resturantPageData, setResturantPageData] = useState([]);
+
   useEffect(() => {
     datafetch();
   }, []);
@@ -11,15 +14,22 @@ const ResturantPage = () => {
     );
     const json = await data.json();
 
-    console.log(
-      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[12].card.card
-        .itemCards
+    setResturantPageData(
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[12]?.card
+        ?.card?.itemCards
     );
   };
 
   return (
-    <div>
-      <h3>BreadCumb -- Home Chhindwara Dev International </h3>
+    <div className="m-4 p-4 flex flex-col justify-center items-center m-auto content-center shadow-lg w-1/2">
+      <h3 className="font-bold">Home Chhindwara - Dev International </h3>
+      <h1 className="text-2xl font-bold">Dev International</h1>
+      <h3>cuisines</h3>
+      <h3>
+        {resturantPageData.map((item) => (
+          <FoodItem foodData={item} />
+        ))}
+      </h3>
     </div>
   );
 };
