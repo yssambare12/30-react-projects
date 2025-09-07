@@ -15,21 +15,27 @@ const ResturantPage = () => {
     const json = await data.json();
 
     setResturantPageData(
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[12]?.card
-        ?.card?.itemCards
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+        ?.card?.itemCards || []
     );
   };
 
   return (
-    <div className="m-4 p-4 flex flex-col justify-center items-center m-auto content-center shadow-lg w-1/2">
-      <h3 className="font-bold">Home Chhindwara - Dev International </h3>
-      <h1 className="text-2xl font-bold">Dev International</h1>
-      <h3>cuisines</h3>
-      <h3>
-        {resturantPageData.map((item) => (
-          <FoodItem foodData={item} />
+    <div className="max-w-5xl mx-auto p-6">
+      {/* Restaurant Header */}
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-gray-800">Dev International</h1>
+        <p className="text-lg text-gray-600 mt-2">
+          Home Chhindwara - Delicious Cuisines
+        </p>
+      </div>
+
+      {/* Menu Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {resturantPageData.map((item, index) => (
+          <FoodItem key={index} foodData={item} />
         ))}
-      </h3>
+      </div>
     </div>
   );
 };
