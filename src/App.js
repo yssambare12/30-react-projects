@@ -9,6 +9,7 @@ import BGchangeButton from "./Projects/BgChangeBtn/BgchangeBtn";
 import Contactform from "./Projects/Contact/ContactForm";
 import FoodApp from "./Projects/FoodOrder/FoodApp";
 import ResturantPage from "./Projects/FoodOrder/ResturantPage";
+import QuoteGenerator from "./Projects/QuoteGenerator/QuoteGenerator";
 
 export function App() {
   return (
@@ -53,6 +54,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <ResturantPage />,
         path: "/restaurant/:restaurantId",
+      },
+      {
+        element: <QuoteGenerator />,
+        path: "/Quotegenerator",
       },
     ],
   },
