@@ -10,6 +10,7 @@ import Contactform from "./Projects/Contact/ContactForm";
 import FoodApp from "./Projects/FoodOrder/FoodApp";
 import ResturantPage from "./Projects/FoodOrder/ResturantPage";
 import QuoteGenerator from "./Projects/QuoteGenerator/QuoteGenerator";
+import ProfileCard from "./Projects/ProfileCard/ProfileCard";
 
 export function App() {
   return (
@@ -58,6 +59,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <QuoteGenerator />,
         path: "/Quotegenerator",
+      },
+      {
+        element: <ProfileCard />,
+        path: "/profilecard",
       },
     ],
   },

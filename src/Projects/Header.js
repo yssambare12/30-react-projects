@@ -85,6 +85,9 @@ const Header = () => {
                 QuoteGenerator
               </Link>
             </li>
+            <li>
+              <Link to="profilecard">ProfileCard</Link>
+            </li>
           </ul>
         </nav>
       </div>
