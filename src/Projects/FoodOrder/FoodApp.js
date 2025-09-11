@@ -34,7 +34,7 @@ const FoodApp = () => {
     const json = await data.json();
 
     const AllCardData =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
     setResturantData(AllCardData || []);
