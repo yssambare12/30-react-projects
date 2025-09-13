@@ -24,7 +24,7 @@ const ResturantCard = ({ productData }) => {
           }
           alt={name}
         />
-        <div className="mt-4 p-2 space-y-1">
+        <div className="mt-3 space-y-1">
           <h3 className="font-semibold text-lg text-gray-800">{name}</h3>
           <h3 className="font-semibold text-lg text-gray-800">{id}</h3>
           <p className="text-sm text-gray-600">{cuisines.join(", ")}</p>
