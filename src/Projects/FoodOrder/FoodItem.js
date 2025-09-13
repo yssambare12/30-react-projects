@@ -7,7 +7,7 @@ const FoodItem = ({ foodData }) => {
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
           imageId
         }
-        alt="Mix Veg Raita"
+        alt="Mix Vege Raita"
         className="w-full h-48 object-cover"
       />
       <div className="p-4">
