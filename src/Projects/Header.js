@@ -88,6 +88,9 @@ const Header = () => {
             <li>
               <Link to="profilecard">ProfileCard</Link>
             </li>
+            <li>
+              <Link to="cryptoprice">CrypotPrice</Link>
+            </li>
           </ul>
         </nav>
       </div>

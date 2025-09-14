@@ -11,6 +11,7 @@ import FoodApp from "./Projects/FoodOrder/FoodApp";
 import ResturantPage from "./Projects/FoodOrder/ResturantPage";
 import QuoteGenerator from "./Projects/QuoteGenerator/QuoteGenerator";
 import ProfileCard from "./Projects/ProfileCard/ProfileCard";
+import CryptoPrice from "./Projects/CrypotPrice/CryptoPrice";
 
 export function App() {
   return (
@@ -63,6 +64,10 @@ export const appRouter = createBrowserRouter([
       {
         element: <ProfileCard />,
         path: "/profilecard",
+      },
+      {
+        path: "/cryptoprice",
+        element: <CryptoPrice />,
       },
     ],
   },
