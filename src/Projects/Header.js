@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggledark } from "./utils/themeStyleSlice";
+import { useState } from "react";
 
 const Header = () => {
   const dispatch = useDispatch();
   const isdark = useSelector((store) => store.themestyle.isdark);
+  const [submenu, setSubMenu] = useState(false);
 
   return (
     <header
@@ -31,67 +33,86 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/todo"
-                className="hover:text-yellow-200 hover:underline transition"
-              >
-                Todo App
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/"
                 className="hover:text-yellow-200 hover:underline transition"
               >
                 Home
               </Link>
             </li>
-            <li>
-              <Link
-                to="/accordian"
-                className="hover:text-yellow-200 hover:underline transition"
-              >
-                Accordian
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/bgchange"
-                className="hover:text-yellow-200 hover:underline transition"
-              >
-                BGChangeBtn
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contact"
-                className="hover:text-yellow-200 hover:underline transition"
-              >
-                ContactUS
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/foodapp"
-                className="hover:text-yellow-200 hover:underline transition"
-              >
-                FoodApp
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/quotegenerator"
-                className="hover:text-yellow-200 hover:underline transition"
-              >
-                QuoteGenerator
-              </Link>
-            </li>
-            <li>
-              <Link to="profilecard">ProfileCard</Link>
-            </li>
-            <li>
-              <Link to="cryptoprice">CrypotPrice</Link>
+            <li className="cursor-pointer" onClick={() => setSubMenu(!submenu)}>
+              Projects {submenu ? "⬆" : "⬇"}
             </li>
           </ul>
+          {submenu && (
+            <div className="absolute right-6 mt-2 w-56 rounded-xl bg-white shadow-lg ring-1 ring-black ring-opacity-5 dark:bg-gray-800">
+              <ul className="py-2 list-none">
+                <li>
+                  <Link
+                    to="/todo"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    ✅ Todo App
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/accordian"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    📂 Accordion
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/bgchange"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    🎨 BGChangeBtn
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    📞 ContactUs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/foodapp"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    🍔 FoodApp
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/quotegenerator"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    💡 QuoteGenerator
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/profilecard"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    🪪 ProfileCard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/cryptoprice"
+                    className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
+                  >
+                    💰 CryptoPrice
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </nav>
       </div>
     </header>
