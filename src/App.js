@@ -12,6 +12,7 @@ import ResturantPage from "./Projects/FoodOrder/ResturantPage";
 import QuoteGenerator from "./Projects/QuoteGenerator/QuoteGenerator";
 import ProfileCard from "./Projects/ProfileCard/ProfileCard";
 import CryptoPrice from "./Projects/CrypotPrice/CryptoPrice";
+import RandomImages from "./Projects/RandomImages/RandomImages";
 
 export function App() {
   return (
@@ -68,6 +69,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "/cryptoprice",
         element: <CryptoPrice />,
+      },
+      {
+        path: "/randomimages",
+        element: <RandomImages />,
       },
     ],
   },
