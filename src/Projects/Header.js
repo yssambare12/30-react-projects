@@ -91,6 +91,9 @@ const Header = () => {
             <li>
               <Link to="cryptoprice">CrypotPrice</Link>
             </li>
+            <li>
+              <Link to="weatherapp">WeatherApp</Link>
+            </li>
           </ul>
         </nav>
       </div>
