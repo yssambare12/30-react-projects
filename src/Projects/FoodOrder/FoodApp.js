@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ResturantCard from "./ResturantCard";
+import { useResturantData } from "./CustomHook/useResturantData";
 
 const FoodApp = () => {
-  const [allResturantData, setAllResturantData] = useState([]);
-  const [resturantData, setResturantData] = useState([]);
+  const { resturantData, allResturantData, setResturantData } =
+    useResturantData();
   const [searchText, setSearchText] = useState("");
 
   const searchResturat = () => {
@@ -20,25 +21,6 @@ const FoodApp = () => {
 
     console.log(searchText);
     console.log(filterList);
-  };
-
-  useEffect(() => {
-    dataFetch();
-  }, []);
-
-  const dataFetch = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    const json = await data.json();
-
-    const AllCardData =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-
-    setResturantData(AllCardData || []);
-    setAllResturantData(AllCardData || []);
   };
 
   return (
