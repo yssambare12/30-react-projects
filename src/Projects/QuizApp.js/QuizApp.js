@@ -8,41 +8,54 @@ const QuizApp = () => {
 
   useEffect(() => {
     if (counter >= 10) {
-      setQuizData(quizData + 1);
+      if (quizData < data.length - 1) setQuizData(quizData + 1);
       setCounter(0);
     }
+
     const timer = setInterval(() => {
       setCounter((prev) => prev + 1);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [counter]);
+  }, [counter, quizData]);
 
   return (
-    <div className="m-4 p-4 shadow-lg">
-      <h1 className="flex justify-center">QuizApp</h1>
-      {counter < 10 ? (
-        <h3 className="p-5 m-5 bg-red-600 rounded-full text-white">
-          Counter {counter}
-        </h3>
-      ) : (
-        <h3 className="p-5 m-5 bg-red-600 rounded-full text-white">
-          Time up...
-        </h3>
-      )}
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
+      <h1 className="text-3xl font-bold mb-8 text-blue-700">QuizApp</h1>
+
+      {/* Timer */}
+      <div className="mb-6">
+        <div
+          className={`w-20 h-20 flex items-center justify-center rounded-full text-white text-xl font-bold ${
+            counter < 10 ? "bg-red-500" : "bg-gray-400"
+          }`}
+        >
+          {counter < 10 ? counter : "Time Up"}
+        </div>
+      </div>
+
+      {/* Quiz Card */}
       <QuizModel qdata={data[quizData]} />
-      <button
-        className="bg-blue-500 rounded-md px-3 py-1 text-white "
-        onClick={() => setQuizData(quizData + 1)}
-      >
-        Next
-      </button>
-      <button
-        className="bg-blue-500 rounded-md px-3 py-1 text-white "
-        onClick={() => setQuizData(quizData - 1)}
-      >
-        Prev
-      </button>
+
+      {/* Navigation Buttons */}
+      <div className="flex space-x-4 mt-6">
+        <button
+          className="bg-blue-500 hover:bg-blue-600 transition text-white px-5 py-2 rounded-lg shadow-md disabled:opacity-50"
+          onClick={() => setQuizData((prev) => Math.max(prev - 1, 0))}
+          disabled={quizData === 0}
+        >
+          Prev
+        </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-600 transition text-white px-5 py-2 rounded-lg shadow-md disabled:opacity-50"
+          onClick={() =>
+            setQuizData((prev) => Math.min(prev + 1, data.length - 1))
+          }
+          disabled={quizData === data.length - 1}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
