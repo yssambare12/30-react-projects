@@ -12,7 +12,11 @@ const QuizModel = ({ qdata }) => {
             key={index}
             className="flex items-center space-x-3 p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition"
           >
-            <input type="checkbox" className="w-5 h-5 accent-blue-500" />
+            <input
+              type="radio"
+              name={`question-${qdata.id}`}
+              className="w-5 h-5 accent-blue-500"
+            />
             <span className="text-gray-700">{selectItem}</span>
           </label>
         ))}
