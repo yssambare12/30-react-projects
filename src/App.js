@@ -13,6 +13,7 @@ import QuoteGenerator from "./Projects/QuoteGenerator/QuoteGenerator";
 import ProfileCard from "./Projects/ProfileCard/ProfileCard";
 import CryptoPrice from "./Projects/CrypotPrice/CryptoPrice";
 import StockPrice from "./Projects/RandomImages/StockPrice";
+import QuizApp from "./Projects/QuizApp.js/QuizApp";
 
 export function App() {
   return (
@@ -73,6 +74,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "/stockprice",
         element: <StockPrice />,
+      },
+      {
+        element: <QuizApp />,
+        path: "/quizapp",
       },
     ],
   },
