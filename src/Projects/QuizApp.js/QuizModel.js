@@ -10,7 +10,7 @@ const QuizModel = ({ qdata }) => {
         {combined.map((selectItem, index) => (
           <label
             key={index}
-            className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition"
+            className="flex items-center space-x-3 p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-blue-50 transition"
           >
             <input
               type="radio"
